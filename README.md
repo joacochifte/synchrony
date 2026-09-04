@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 2 — Tooling.** SwiftLint, swift-format, CI, and issue/PR templates are in place on top of the Phase 1 scaffolding. No gameplay logic yet.
+**Phase 3 — Domain models.** `SynchronyCore` now has the prompt/answer/round/match domain model and all four matching criteria (numeric, multiple choice, free text, direction), fully unit tested. No game engine, transport, or UI yet.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the branching model, commit convention, and how to run tests, lint, and format locally.
 
@@ -32,6 +32,7 @@ Architecture decisions are recorded in [`docs/adr/`](docs/adr):
 
 - [0001 — Record architecture decisions](docs/adr/0001-record-architecture-decisions.md)
 - [0002 — One local SPM package with four targets](docs/adr/0002-local-spm-package-structure.md)
+- [0003 — Closed enum for PromptKind](docs/adr/0003-prompt-kind-closed-enum.md)
 
 ## Building
 
