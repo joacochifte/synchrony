@@ -34,7 +34,7 @@ struct PairingView: View {
         .padding()
     }
 
-    private var statusText: String {
+    private var statusText: LocalizedStringKey {
         switch coordinator.connectionState {
         case .notConnected, .connecting:
             coordinator.role == .host ? "Creando partida…" : "Buscando partida…"
