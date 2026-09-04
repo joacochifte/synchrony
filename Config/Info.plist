@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Synchrony necesita acceder a la red local para conectar tu teléfono con el de tu pareja y jugar juntos, sin internet ni cuentas.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_synchrony._tcp</string>
+		<string>_synchrony._udp</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Synchrony usa la brújula para las consignas de dirección del juego. Tu ubicación nunca se guarda ni se comparte.</string>
+</dict>
+</plist>
