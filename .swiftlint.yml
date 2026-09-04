@@ -36,6 +36,10 @@ opt_in_rules:
 
 disabled_rules:
   - todo
+  # Same conflict as sorted_imports above: swift-format's default style adds
+  # a trailing comma to multi-line collection literals; this rule removes
+  # it. swift-format wins since it's the one that actually reformats code.
+  - trailing_comma
 
 line_length:
   warning: 120
