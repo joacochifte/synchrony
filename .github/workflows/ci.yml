@@ -48,7 +48,18 @@ jobs:
       - name: Run SynchronyCore/Transport/Persistence/UI package tests
         run: |
           set -o pipefail
-          swift test --package-path Packages/Synchrony 2>&1 | tee test-results.log
+          swift test --package-path Packages/Synchrony --enable-code-coverage 2>&1 | tee test-results.log
+
+      - name: Generate coverage report
+        run: |
+          set -o pipefail
+          test_binary=$(find Packages/Synchrony/.build -path "*/debug/SynchronyPackageTests.xctest/Contents/MacOS/SynchronyPackageTests")
+          profdata=$(find Packages/Synchrony/.build -name "default.profdata")
+          xcrun llvm-cov report "$test_binary" \
+            -instr-profile="$profdata" \
+            --ignore-filename-regex='\.build|Tests/' \
+            > coverage-report.txt
+          cat coverage-report.txt
 
       - name: Build app for simulator
         run: |
@@ -57,9 +68,11 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             CODE_SIGNING_ALLOWED=NO
 
-      - name: Upload test results
+      - name: Upload test results and coverage report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: package-test-results
-          path: test-results.log
+          path: |
+            test-results.log
+            coverage-report.txt
