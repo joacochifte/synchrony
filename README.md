@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 6 — Real transport.** `MultipeerTransport` implements `GameTransport` over MultipeerConnectivity with zero-config pairing (one device hosts, the other joins — no picker UI), the required local-network and compass permissions are declared, and `ClockOffsetEstimator` turns ping/pong samples into a clock offset with outlier rejection. See [ADR-0004](docs/adr/0004-clock-synchronization-mechanism.md) for the full mechanism and its sequence diagram.
+**Phase 7 — Persistence.** `SynchronyPersistence` has SwiftData models for match history (`MatchRecord`/`RoundRecord`, deliberately separate from `SynchronyCore`'s live domain types), a repository wrapping save/fetch/delete, and aggregate sync statistics with a trend calculation over time. Still no UI to see any of this in.
 
 ## Simultaneous synchronization
 
@@ -70,6 +70,7 @@ Architecture decisions are recorded in [`docs/adr/`](docs/adr):
 - [0002 — One local SPM package with four targets](docs/adr/0002-local-spm-package-structure.md)
 - [0003 — Closed enum for PromptKind](docs/adr/0003-prompt-kind-closed-enum.md)
 - [0004 — Clock synchronization mechanism](docs/adr/0004-clock-synchronization-mechanism.md)
+- [0005 — SwiftData over Core Data](docs/adr/0005-swiftdata-over-core-data.md)
 
 ## Building
 
