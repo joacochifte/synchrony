@@ -1,4 +1,5 @@
 import Testing
+
 @testable import SynchronyPersistence
 
 @Suite struct SynchronyPersistenceTests {
