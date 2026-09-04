@@ -49,6 +49,10 @@ identifier_name:
     - id
     - x
     - y
+    - a
+    - b
+    - i
+    - j
 
 type_body_length:
   warning: 300
