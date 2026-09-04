@@ -202,9 +202,10 @@
 				};
 			};
 			buildConfigurationList = 794674F0304A437E001C2B7F /* Build configuration list for PBXProject "Synchrony" */;
-			developmentRegion = en;
+			developmentRegion = es;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				es,
 				en,
 				Base,
 			);

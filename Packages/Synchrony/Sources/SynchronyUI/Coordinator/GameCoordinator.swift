@@ -171,7 +171,7 @@ public final class GameCoordinator {
             }
 
             if case .disconnected = state, screen != .summary, screen != .home {
-                errorMessage = "El otro jugador se desconectó."
+                errorMessage = String(localized: "El otro jugador se desconectó.")
                 screen = .home
             }
         }
@@ -218,7 +218,11 @@ public final class GameCoordinator {
     }
 
     private func handleHandshakeRejected(reason: String) {
-        errorMessage = reason
+        // `reason` is a wire-protocol detail, not user-facing copy — the
+        // two devices in a match aren't guaranteed to share a locale, so
+        // showing it verbatim could put the wrong language on screen. The
+        // message shown here is always in the local device's own language.
+        errorMessage = String(localized: "No se pudo conectar: las versiones de la app no coinciden.")
         returnHome()
     }
 
@@ -238,7 +242,7 @@ public final class GameCoordinator {
 
     private func handleHandshake(version: Int, transport: any GameTransport) async {
         guard version == ProtocolVersion.current else {
-            try? await transport.send(.handshakeRejected(reason: "Las versiones de la app no coinciden."))
+            try? await transport.send(.handshakeRejected(reason: "protocol version mismatch"))
             return
         }
         try? await transport.send(.handshakeAccepted)
