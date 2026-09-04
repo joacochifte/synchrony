@@ -1,0 +1,262 @@
+[
+  {
+    "id": "numeric-uno-al-diez",
+    "text": "Elegí, sin pensarlo mucho, un número del 1 al 10.",
+    "type": "numeric",
+    "min": 1,
+    "max": 10,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-mates-por-dia",
+    "text": "¿Cuántos mates tomás en un día común?",
+    "type": "numeric",
+    "min": 0,
+    "max": 20,
+    "tolerance": 2
+  },
+  {
+    "id": "numeric-anos-para-el-viaje-sonado",
+    "text": "Si tuvieran que ahorrar para el viaje soñado, ¿en cuántos años lo lograrían?",
+    "type": "numeric",
+    "min": 1,
+    "max": 15,
+    "tolerance": 2
+  },
+  {
+    "id": "numeric-mascotas-en-la-casa-ideal",
+    "text": "¿Cuántas mascotas tendrían en la casa ideal?",
+    "type": "numeric",
+    "min": 0,
+    "max": 10,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-nota-ultima-pelicula",
+    "text": "Del 1 al 10, ¿qué nota le ponés a la última peli que vieron juntos?",
+    "type": "numeric",
+    "min": 1,
+    "max": 10,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-horas-de-sueno",
+    "text": "¿Cuántas horas dormís en una noche normal?",
+    "type": "numeric",
+    "min": 3,
+    "max": 12,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-veces-por-semana-cocinan",
+    "text": "¿Cuántas veces por semana cocinan en casa?",
+    "type": "numeric",
+    "min": 0,
+    "max": 14,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-fotos-juntos-en-el-celular",
+    "text": "¿Cuántas fotos juntos calculan que tienen guardadas en el celular?",
+    "type": "numeric",
+    "min": 1,
+    "max": 500,
+    "tolerance": 50
+  },
+  {
+    "id": "numeric-nivel-de-cansancio-hoy",
+    "text": "Del 1 al 10, ¿qué tan cansado estás hoy?",
+    "type": "numeric",
+    "min": 1,
+    "max": 10,
+    "tolerance": 1
+  },
+  {
+    "id": "numeric-anos-en-el-mismo-barrio",
+    "text": "¿Cuántos años se imaginan viviendo en el mismo barrio?",
+    "type": "numeric",
+    "min": 1,
+    "max": 30,
+    "tolerance": 3
+  },
+  {
+    "id": "choice-playa-o-montana",
+    "text": "¿Qué prefiere el otro: playa o montaña?",
+    "type": "multipleChoice",
+    "options": ["Playa", "Montaña"]
+  },
+  {
+    "id": "choice-birra-o-vino",
+    "text": "Para un asado, ¿el otro pide birra o vino?",
+    "type": "multipleChoice",
+    "options": ["Birra", "Vino"]
+  },
+  {
+    "id": "choice-perro-o-gato",
+    "text": "¿El otro es más de perros o de gatos?",
+    "type": "multipleChoice",
+    "options": ["Perros", "Gatos"]
+  },
+  {
+    "id": "choice-mate-o-cafe",
+    "text": "A la mañana, ¿el otro prefiere mate o café?",
+    "type": "multipleChoice",
+    "options": ["Mate", "Café"]
+  },
+  {
+    "id": "choice-serie-o-pelicula",
+    "text": "Para una noche libre, ¿el otro elige serie o película?",
+    "type": "multipleChoice",
+    "options": ["Serie", "Película"]
+  },
+  {
+    "id": "choice-dulce-o-salado",
+    "text": "¿El otro es más de dulce o de salado?",
+    "type": "multipleChoice",
+    "options": ["Dulce", "Salado"]
+  },
+  {
+    "id": "choice-verano-o-invierno",
+    "text": "¿El otro prefiere el verano o el invierno?",
+    "type": "multipleChoice",
+    "options": ["Verano", "Invierno"]
+  },
+  {
+    "id": "choice-plan-en-casa-o-salir",
+    "text": "Para un finde libre, ¿el otro prefiere plan en casa o salir?",
+    "type": "multipleChoice",
+    "options": ["En casa", "Salir"]
+  },
+  {
+    "id": "choice-manana-o-noche",
+    "text": "¿El otro rinde más a la mañana o a la noche?",
+    "type": "multipleChoice",
+    "options": ["Mañana", "Noche"]
+  },
+  {
+    "id": "choice-asado-o-fernet",
+    "text": "En un cumpleaños, ¿el otro pide más asado o fernet?",
+    "type": "multipleChoice",
+    "options": ["Asado", "Fernet"]
+  },
+  {
+    "id": "text-comida-favorita-del-otro",
+    "text": "¿Cuál es la comida favorita del otro?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-pelicula-favorita-del-otro",
+    "text": "¿Cuál dirían que es la película favorita del otro?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-lugar-para-vivir",
+    "text": "Si pudieran vivir en cualquier lugar del mundo, ¿cuál elegiría el otro?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-nombre-de-superheroe",
+    "text": "Si el otro fuera un superhéroe, ¿cómo se llamaría?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-cancion-pegada-esta-semana",
+    "text": "¿Qué canción dirían que el otro tiene pegada esta semana?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-el-dia-que-se-conocieron",
+    "text": "En una palabra, ¿cómo describirían el día que se conocieron?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-animal-que-los-representa",
+    "text": "Si fueran un animal como pareja, ¿cuál sería?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-palabra-que-mas-repite",
+    "text": "¿Cuál es la palabra o muletilla que más repite el otro?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-postre-favorito-del-otro",
+    "text": "¿Cuál es el postre favorito del otro?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "text-a-que-se-dedicaria-con-tiempo-libre",
+    "text": "Si el otro tuviera tiempo libre infinito, ¿a qué se dedicaría?",
+    "type": "freeText",
+    "levenshteinThreshold": 2
+  },
+  {
+    "id": "direction-hacia-el-norte",
+    "text": "Señalá hacia el norte, sin mirar el teléfono.",
+    "type": "direction",
+    "toleranceDegrees": 30
+  },
+  {
+    "id": "direction-hacia-la-heladera",
+    "text": "Señalá hacia donde está la heladera de tu casa ahora mismo.",
+    "type": "direction",
+    "toleranceDegrees": 35
+  },
+  {
+    "id": "direction-hacia-la-primera-cita",
+    "text": "Señalá hacia donde tuvieron su primera cita, aunque sea aproximado.",
+    "type": "direction",
+    "toleranceDegrees": 45
+  },
+  {
+    "id": "direction-hacia-donde-naciste",
+    "text": "Señalá hacia la ciudad donde naciste.",
+    "type": "direction",
+    "toleranceDegrees": 40
+  },
+  {
+    "id": "direction-hacia-el-trabajo",
+    "text": "Señalá hacia donde queda tu laburo o facultad.",
+    "type": "direction",
+    "toleranceDegrees": 35
+  },
+  {
+    "id": "direction-hacia-casa-de-los-padres",
+    "text": "Señalá hacia la casa de tus papás.",
+    "type": "direction",
+    "toleranceDegrees": 40
+  },
+  {
+    "id": "direction-hacia-el-viaje-sonado",
+    "text": "Señalá hacia el país que más ganas tenés de conocer.",
+    "type": "direction",
+    "toleranceDegrees": 45
+  },
+  {
+    "id": "direction-hacia-el-restorán-favorito",
+    "text": "Señalá hacia tu restorán o bar favorito de la zona.",
+    "type": "direction",
+    "toleranceDegrees": 35
+  },
+  {
+    "id": "direction-hacia-el-sol",
+    "text": "Sin mirar afuera, señalá hacia donde creés que está el sol ahora.",
+    "type": "direction",
+    "toleranceDegrees": 40
+  },
+  {
+    "id": "direction-hacia-el-mar",
+    "text": "Señalá hacia el mar, o el río si están tierra adentro.",
+    "type": "direction",
+    "toleranceDegrees": 45
+  }
+]
