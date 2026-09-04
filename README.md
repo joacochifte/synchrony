@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 3 — Domain models.** `SynchronyCore` now has the prompt/answer/round/match domain model and all four matching criteria (numeric, multiple choice, free text, direction), fully unit tested. No game engine, transport, or UI yet.
+**Phase 4 — Game engine.** `SynchronyCore` now has `MatchEngine` (the answering → revealing → next-round state machine and sync scoring), a bundled 40-prompt deck in Rioplatense Spanish loaded via `DeckLoader`, and deterministic round selection. No transport or UI yet — the engine has no idea how answers get to it.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the branching model, commit convention, and how to run tests, lint, and format locally.
 
