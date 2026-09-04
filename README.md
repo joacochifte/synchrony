@@ -6,7 +6,9 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 1 — Scaffolding.** The repository structure, Xcode project, and local Swift package are in place. No gameplay logic yet.
+**Phase 2 — Tooling.** SwiftLint, swift-format, CI, and issue/PR templates are in place on top of the Phase 1 scaffolding. No gameplay logic yet.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the branching model, commit convention, and how to run tests, lint, and format locally.
 
 ## Architecture
 
