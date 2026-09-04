@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		79467540304A44E7001C2B7F /* SynchronyCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7946753F304A44E7001C2B7F /* SynchronyCore */; };
+		79467542304A44E7001C2B7F /* SynchronyPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 79467541304A44E7001C2B7F /* SynchronyPersistence */; };
+		79467544304A44E7001C2B7F /* SynchronyTransport in Frameworks */ = {isa = PBXBuildFile; productRef = 79467543304A44E7001C2B7F /* SynchronyTransport */; };
+		79467546304A44E7001C2B7F /* SynchronyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 79467545304A44E7001C2B7F /* SynchronyUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		79467503304A437F001C2B7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79467542304A44E7001C2B7F /* SynchronyPersistence in Frameworks */,
+				79467544304A44E7001C2B7F /* SynchronyTransport in Frameworks */,
+				79467546304A44E7001C2B7F /* SynchronyUI in Frameworks */,
+				79467540304A44E7001C2B7F /* SynchronyCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +123,10 @@
 			);
 			name = Synchrony;
 			packageProductDependencies = (
+				7946753F304A44E7001C2B7F /* SynchronyCore */,
+				79467541304A44E7001C2B7F /* SynchronyPersistence */,
+				79467543304A44E7001C2B7F /* SynchronyTransport */,
+				79467545304A44E7001C2B7F /* SynchronyUI */,
 			);
 			productName = Synchrony;
 			productReference = 794674F5304A437E001C2B7F /* Synchrony.app */;
@@ -195,6 +210,9 @@
 			);
 			mainGroup = 794674EC304A437E001C2B7F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7946753E304A44E7001C2B7F /* XCLocalSwiftPackageReference "Packages/Synchrony" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 794674F6304A437E001C2B7F /* Products */;
 			projectDirPath = "";
@@ -410,9 +428,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.Synchrony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -438,9 +456,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.Synchrony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -456,9 +474,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.SynchronyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Synchrony.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Synchrony";
 			};
 			name = Debug;
@@ -475,9 +493,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.SynchronyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Synchrony.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Synchrony";
 			};
 			name = Release;
@@ -492,9 +510,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.SynchronyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Synchrony;
 			};
 			name = Debug;
@@ -509,9 +527,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.joacochifte.SynchronyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Synchrony;
 			};
 			name = Release;
@@ -556,6 +574,32 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		7946753E304A44E7001C2B7F /* XCLocalSwiftPackageReference "Packages/Synchrony" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Synchrony;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7946753F304A44E7001C2B7F /* SynchronyCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SynchronyCore;
+		};
+		79467541304A44E7001C2B7F /* SynchronyPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SynchronyPersistence;
+		};
+		79467543304A44E7001C2B7F /* SynchronyTransport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SynchronyTransport;
+		};
+		79467545304A44E7001C2B7F /* SynchronyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SynchronyUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 794674ED304A437E001C2B7F /* Project object */;
 }
