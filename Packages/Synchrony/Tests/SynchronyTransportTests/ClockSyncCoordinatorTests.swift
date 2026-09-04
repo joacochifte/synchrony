@@ -7,9 +7,11 @@ import Testing
     @Test func synchronizeProducesAnOffsetAgainstARespondingPeer() async throws {
         let (prober, responder) = await InMemoryTransport.makeConnectedPair()
         let origin = ContinuousClock.now
+        let coordinator = ClockSyncCoordinator(transport: prober, origin: origin, sampleCount: 5)
 
-        // A minimal stand-in for the host side of GameCoordinator: echo
-        // every ping straight back as a pong.
+        // A minimal stand-in for GameCoordinator's shared message loop:
+        // one consumer of `incomingMessages` on each side, forwarding
+        // pongs to the coordinator and echoing pings straight back.
         let responderTask = Task {
             var iterator = responder.incomingMessages.makeAsyncIterator()
             while let message = await iterator.next() {
@@ -20,8 +22,13 @@ import Testing
                 )
             }
         }
+        let forwardingTask = Task {
+            var iterator = prober.incomingMessages.makeAsyncIterator()
+            while let message = await iterator.next() {
+                await coordinator.receive(message)
+            }
+        }
 
-        let coordinator = ClockSyncCoordinator(transport: prober, origin: origin, sampleCount: 5)
         let result = try await coordinator.synchronize()
 
         // Two devices in the same process, same origin: the estimated
@@ -30,6 +37,7 @@ import Testing
         #expect(result.quality == .good)
 
         responderTask.cancel()
+        forwardingTask.cancel()
     }
 
     @Test func synchronizeThrowsWithNoPeerToRespond() async {
