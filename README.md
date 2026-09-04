@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 6 — Real transport.** `MultipeerTransport` implements `GameTransport` over MultipeerConnectivity with zero-config pairing (one device hosts, the other joins — no picker UI), and `ClockOffsetEstimator` turns ping/pong samples into a clock offset with outlier rejection. See [ADR-0004](docs/adr/0004-clock-synchronization-mechanism.md) for the full mechanism and its sequence diagram.
+**Phase 6 — Real transport.** `MultipeerTransport` implements `GameTransport` over MultipeerConnectivity with zero-config pairing (one device hosts, the other joins — no picker UI), the required local-network and compass permissions are declared, and `ClockOffsetEstimator` turns ping/pong samples into a clock offset with outlier rejection. See [ADR-0004](docs/adr/0004-clock-synchronization-mechanism.md) for the full mechanism and its sequence diagram.
 
 ## Simultaneous synchronization
 
