@@ -14,7 +14,7 @@ public final class MatchRecord {
     public var syncedRoundCount: Int
     public var syncPercentage: Double
 
-    @Relationship(deleteRule: .cascade)
+    @Relationship(deleteRule: .cascade, inverse: \RoundRecord.match)
     public var rounds: [RoundRecord]
 
     public init(

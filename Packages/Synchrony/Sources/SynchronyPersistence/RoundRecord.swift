@@ -11,6 +11,12 @@ public final class RoundRecord {
     public var promptText: String
     public var wasSynchronized: Bool
 
+    /// The owning match. SwiftData needs both sides of a to-many
+    /// relationship declared — `MatchRecord.rounds` names this property as
+    /// its inverse — or it can't resolve merge conflicts and crashes with
+    /// "does not have an inverse" the first time one actually occurs.
+    public var match: MatchRecord?
+
     public init(promptID: String, promptText: String, wasSynchronized: Bool) {
         self.promptID = promptID
         self.promptText = promptText
