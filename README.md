@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 4 — Game engine.** `SynchronyCore` now has `MatchEngine` (the answering → revealing → next-round state machine and sync scoring), a bundled 40-prompt deck in Rioplatense Spanish loaded via `DeckLoader`, and deterministic round selection. No transport or UI yet — the engine has no idea how answers get to it.
+**Phase 5 — Transport abstraction.** `SynchronyTransport` now has the `GameTransport` protocol, the full `GameMessage` wire protocol, and `InMemoryTransport` — an in-process loopback used by an end-to-end test that plays a full match across two simulated devices. No real networking yet: `MultipeerTransport` and the clock-sync algorithm are Phase 6.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the branching model, commit convention, and how to run tests, lint, and format locally.
 
