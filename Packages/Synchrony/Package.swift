@@ -5,7 +5,11 @@ let package = Package(
     name: "Synchrony",
     defaultLocalization: "es",
     platforms: [
-        .iOS(.v17)
+        .iOS(.v17),
+        // Not a real deployment target — the app only ships on iOS. This
+        // just gives `swift test` a modern enough macOS minimum to run
+        // locally and in CI, since that always builds for the host.
+        .macOS(.v14)
     ],
     products: [
         .library(name: "SynchronyCore", targets: ["SynchronyCore"]),
