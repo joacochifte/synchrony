@@ -70,7 +70,7 @@ private struct StatisticsSummary: View {
         }
     }
 
-    private var trendText: String {
+    private var trendText: LocalizedStringKey {
         switch statistics.recentTrend {
         case .improving: "Mejorando ↗︎"
         case .declining: "Bajando ↘︎"

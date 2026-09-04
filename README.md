@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 8 — UI.** `SynchronyUI` now has `GameCoordinator` — the composition root tying the game engine, transport, and persistence together into an actual playable match — and all seven screens (home, pairing, prompt, reveal, summary, history). The app builds and runs end to end for the first time. See [ADR-0005](docs/adr/0005-swiftdata-over-core-data.md) for two real SwiftData bugs this phase's full-match test caught.
+**Phase 9 — Polish.** Spring animations on the reveal and match-summary screens (the game's two emotional beats), VoiceOver labels on the custom Stepper/Slider inputs, Dynamic-Type-friendly hero numbers, a real app icon, and full es/en localization via a String Catalog — Spanish is the project's development region, English translations are complete for all 42 UI strings. Verified in the simulator in both languages and at the largest accessibility text size.
 
 ## Simultaneous synchronization
 
@@ -94,8 +94,10 @@ swift test --package-path Packages/Synchrony
 
 - `MultipeerTransport` compiles and is exercised by `GameCoordinator`'s full-match test over `InMemoryTransport`, but real MultipeerConnectivity peer discovery needs two physical devices (or a device + simulator, with caveats); this can't run in CI, which is why `ClockOffsetEstimator` — the one piece of the sync mechanism that's pure math — is what's actually unit tested, with synthetic samples.
 - Direction prompts use a plain 0–359° slider rather than a real compass reading — CoreLocation sensing is device-only and can't be exercised in a preview or CI, and wiring it in doesn't change anything about the domain layer or protocol.
-- No accessibility labels, Dynamic Type verification, or es/en localization yet — that's Phase 9.
 - Building against MultipeerConnectivity emits Swift 6 concurrency warnings from Apple's own (not-yet-Sendable-audited) SDK, silenced at the import boundary with `@preconcurrency` — expected, not a bug in this code.
+- `Info.plist`'s permission strings (local network, compass) are Spanish-only — those live in a separate catalog (`InfoPlist.xcstrings`) from the app's own UI strings, and localizing them wasn't worth the added scope this phase. An English-locale user sees Spanish permission prompts.
+- Localized strings with plural counts (e.g. "%lld rondas") use a single fixed form rather than real plural rules — acceptable for Spanish, less correct for English's singular/plural split at exactly one round.
+- At the largest accessibility text size, the two buttons on the home screen truncate their labels with "…" instead of wrapping to a second line — readable and tappable, not a broken layout, just not the ideal presentation at that extreme.
 
 ## License
 

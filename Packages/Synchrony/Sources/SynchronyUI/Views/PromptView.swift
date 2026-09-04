@@ -94,9 +94,12 @@ private struct NumericAnswerInput: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("\(value)")
-                .font(.system(size: 56, weight: .bold, design: .rounded))
+                .font(.system(.largeTitle, design: .rounded).weight(.bold))
+                .accessibilityHidden(true)
             Stepper("", value: $value, in: range)
                 .labelsHidden()
+                .accessibilityLabel(Text("Número"))
+                .accessibilityValue("\(value)")
             Button("Confirmar") { onAnswer(.number(value)) }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
@@ -149,8 +152,11 @@ private struct DirectionAnswerInput: View {
             Image(systemName: "location.north.fill")
                 .font(.system(size: 48))
                 .rotationEffect(.degrees(heading))
+                .accessibilityHidden(true)
             Slider(value: $heading, in: 0...359)
                 .padding(.horizontal, 32)
+                .accessibilityLabel(Text("Dirección"))
+                .accessibilityValue("\(Int(heading)) grados")
             Button("Confirmar") { onAnswer(.heading(heading)) }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)

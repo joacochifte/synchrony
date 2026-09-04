@@ -3,6 +3,8 @@ import SwiftUI
 struct MatchSummaryView: View {
     let coordinator: GameCoordinator
 
+    @State private var hasAppeared = false
+
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
@@ -12,11 +14,19 @@ struct MatchSummaryView: View {
 
             VStack(spacing: 4) {
                 Text("\(Int(coordinator.finalSyncPercentage))%")
-                    .font(.system(size: 72, weight: .bold, design: .rounded))
+                    .font(.system(.largeTitle, design: .rounded).weight(.bold))
                     .foregroundStyle(.tint)
                 Text("de sincronía")
                     .font(.title3)
                     .foregroundStyle(.secondary)
+            }
+            .accessibilityElement(children: .combine)
+            .scaleEffect(hasAppeared ? 1 : 0.7)
+            .opacity(hasAppeared ? 1 : 0)
+            .onAppear {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.65)) {
+                    hasAppeared = true
+                }
             }
 
             Spacer()
