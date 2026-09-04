@@ -26,7 +26,10 @@ graph TD
 - **SynchronyUI** — SwiftUI views and view models.
 - **Synchrony (app target)** — composition root, entry point, Info.plist, assets.
 
-Full details land in [`docs/adr/`](docs/adr) as decisions are made.
+Architecture decisions are recorded in [`docs/adr/`](docs/adr):
+
+- [0001 — Record architecture decisions](docs/adr/0001-record-architecture-decisions.md)
+- [0002 — One local SPM package with four targets](docs/adr/0002-local-spm-package-structure.md)
 
 ## Building
 
@@ -39,6 +42,12 @@ open Synchrony.xcodeproj
 ```
 
 Select the `Synchrony` scheme and run on an iPhone simulator (⌘R). No manual configuration steps.
+
+To run the package's own test suite directly:
+
+```bash
+swift test --package-path Packages/Synchrony
+```
 
 ## Known limitations
 
