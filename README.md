@@ -6,7 +6,7 @@ A cooperative two-player game for iPhone: no server, no accounts, no internet. T
 
 ## Project status
 
-**Phase 7 — Persistence.** `SynchronyPersistence` has SwiftData models for match history (`MatchRecord`/`RoundRecord`, deliberately separate from `SynchronyCore`'s live domain types), a repository wrapping save/fetch/delete, and aggregate sync statistics with a trend calculation over time. Still no UI to see any of this in.
+**Phase 8 — UI.** `SynchronyUI` now has `GameCoordinator` — the composition root tying the game engine, transport, and persistence together into an actual playable match — and all seven screens (home, pairing, prompt, reveal, summary, history). The app builds and runs end to end for the first time. See [ADR-0005](docs/adr/0005-swiftdata-over-core-data.md) for two real SwiftData bugs this phase's full-match test caught.
 
 ## Simultaneous synchronization
 
@@ -92,9 +92,9 @@ swift test --package-path Packages/Synchrony
 
 ## Known limitations
 
-- No UI yet — nothing to play by hand until Phase 8.
-- `MultipeerTransport` compiles and is exercised by real device testing, but MultipeerConnectivity peer discovery needs two physical devices (or a device + simulator, with caveats); this can't run in CI, which is why `ClockOffsetEstimator` — the one piece of the sync mechanism that's pure math — is what's actually unit tested, with synthetic samples.
-- The coordinator that runs the clock-sync ping/pong exchange over a live match and schedules real local events from it doesn't exist yet; it arrives once the UI needs to drive an actual match (Phase 8). See ADR-0004.
+- `MultipeerTransport` compiles and is exercised by `GameCoordinator`'s full-match test over `InMemoryTransport`, but real MultipeerConnectivity peer discovery needs two physical devices (or a device + simulator, with caveats); this can't run in CI, which is why `ClockOffsetEstimator` — the one piece of the sync mechanism that's pure math — is what's actually unit tested, with synthetic samples.
+- Direction prompts use a plain 0–359° slider rather than a real compass reading — CoreLocation sensing is device-only and can't be exercised in a preview or CI, and wiring it in doesn't change anything about the domain layer or protocol.
+- No accessibility labels, Dynamic Type verification, or es/en localization yet — that's Phase 9.
 - Building against MultipeerConnectivity emits Swift 6 concurrency warnings from Apple's own (not-yet-Sendable-audited) SDK, silenced at the import boundary with `@preconcurrency` — expected, not a bug in this code.
 
 ## License
