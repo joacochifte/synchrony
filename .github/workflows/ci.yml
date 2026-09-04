@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [dev, main]
+  push:
+    branches: [dev, main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    # Pinned explicitly: never trust the runner's default Xcode. Bump this
+    # (and the xcode-select step below) when the project's Xcode requirement
+    # changes.
+    runs-on: macos-15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode 16.4
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
+
+      - name: Cache SwiftPM artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            Packages/Synchrony/.build
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('Packages/Synchrony/Package.resolved') }}
+          restore-keys: |
+            spm-${{ runner.os }}-
+
+      - name: Install SwiftLint and swift-format
+        run: brew install swiftlint swift-format
+
+      - name: SwiftLint
+        run: swiftlint lint --strict
+
+      - name: swift-format
+        run: |
+          swift-format lint --recursive --strict \
+            Synchrony SynchronyTests SynchronyUITests \
+            Packages/Synchrony/Sources Packages/Synchrony/Tests
+
+      - name: Run SynchronyCore/Transport/Persistence/UI package tests
+        run: |
+          set -o pipefail
+          swift test --package-path Packages/Synchrony 2>&1 | tee test-results.log
+
+      - name: Build app for simulator
+        run: |
+          xcodebuild build \
+            -project Synchrony.xcodeproj -scheme Synchrony \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-test-results
+          path: test-results.log
