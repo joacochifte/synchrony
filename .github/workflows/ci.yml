@@ -24,7 +24,7 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
 
       - name: Cache SwiftPM artifacts
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             Packages/Synchrony/.build
