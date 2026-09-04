@@ -65,7 +65,7 @@ jobs:
         run: |
           xcodebuild build \
             -project Synchrony.xcodeproj -scheme Synchrony \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Upload test results and coverage report
