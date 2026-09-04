@@ -1,0 +1,62 @@
+# SwiftLint configuration for Synchrony.
+# Rule choices are explained in CONTRIBUTING.md — this file only says *what*.
+
+included:
+  - Synchrony
+  - SynchronyTests
+  - SynchronyUITests
+  - Packages/Synchrony/Sources
+  - Packages/Synchrony/Tests
+
+excluded:
+  - .build
+  - Packages/Synchrony/.build
+  - DerivedData
+
+# sorted_imports is deliberately not enabled: it sorts the whole import
+# line alphabetically, which fights swift-format's OrderedImports rule
+# (regular imports before @testable ones). Import order is swift-format's
+# job; see .swift-format.
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - modifier_order
+  - multiline_arguments
+  - overridden_super_call
+  - prefer_self_in_static_references
+  - redundant_type_annotation
+  - toggle_bool
+  - unneeded_parentheses_in_closure_argument
+  - vertical_whitespace_closing_braces
+
+disabled_rules:
+  - todo
+
+line_length:
+  warning: 120
+  error: 160
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - id
+    - x
+    - y
+
+type_body_length:
+  warning: 300
+  error: 400
+
+file_length:
+  warning: 400
+  error: 600
+
+force_cast: error
+force_try: error
