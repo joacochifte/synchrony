@@ -16,6 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "SynchronyCore",
+            resources: [.process("Resources/prompts.json")],
             swiftSettings: [.swiftLanguageMode(.v6)]
         ),
         .target(

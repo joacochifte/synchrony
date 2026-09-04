@@ -5,7 +5,13 @@
 /// `isMatch(_:_:)` — nothing in the game engine has to change, since the
 /// engine only ever calls `prompt.kind.isMatch(answerA, answerB)` without
 /// knowing which case it got. See ADR-0003.
-public enum PromptKind: Codable, Equatable, Sendable {
+///
+/// No `Codable` conformance here: an auto-synthesized enum-with-associated-
+/// values encoding nests every field under its case name, which is an ugly,
+/// Swift-internal-shaped JSON to hand-author 40 prompts in. `Prompt` encodes
+/// and decodes this data as flat, human-readable fields instead — see its
+/// custom `Codable` implementation.
+public enum PromptKind: Equatable, Sendable {
     /// Exact match, or within `tolerance` of each other.
     case numeric(range: ClosedRange<Int>, tolerance: Int)
 
