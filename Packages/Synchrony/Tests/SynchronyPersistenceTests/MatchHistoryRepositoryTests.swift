@@ -9,7 +9,7 @@ import Testing
 
     private func makeRepository() throws -> MatchHistoryRepository {
         let container = try ModelContainer.makeSynchronyContainer(inMemory: true)
-        return MatchHistoryRepository(context: ModelContext(container))
+        return MatchHistoryRepository(container: container)
     }
 
     @Test func savingAndFetchingReturnsTheRecord() throws {
